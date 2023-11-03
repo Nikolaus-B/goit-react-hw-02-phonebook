@@ -1,8 +1,10 @@
+import { SearchContainer, SearchInput } from './Filter.styled';
+
 export const Filter = ({ filter, onSearchPhone }) => {
   return (
-    <div>
+    <SearchContainer>
       <p>Find contacts by name</p>
-      <input onChange={e => onSearchPhone(e.target.value)} type="text" />
-    </div>
+      <SearchInput onChange={e => onSearchPhone(e.target.value)} type="text" />
+    </SearchContainer>
   );
 };

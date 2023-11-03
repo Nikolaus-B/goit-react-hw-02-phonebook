@@ -1,16 +1,25 @@
+import {
+  PhonebookButton,
+  PhonebookItem,
+  PhonebookList,
+  PhonebookNumber,
+} from './ContactList.styled';
+
 export const ContactList = ({ items, onDelete }) => {
   return (
-    <ul>
+    <PhonebookList>
       {items.map(item => {
         return (
-          <li key={item.id}>
+          <PhonebookItem key={item.id}>
             <p>
-              {item.name}: <span>{item.number}</span>
+              {item.name}: <PhonebookNumber>{item.number}</PhonebookNumber>
             </p>
-            <button onClick={() => onDelete(item.id)}>Delete</button>
-          </li>
+            <PhonebookButton onClick={() => onDelete(item.id)}>
+              Delete
+            </PhonebookButton>
+          </PhonebookItem>
         );
       })}
-    </ul>
+    </PhonebookList>
   );
 };

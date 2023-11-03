@@ -3,6 +3,8 @@ import { PhoneForm } from './PhoneForm/PhoneForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
+import { GlobalStyle } from './GlobalStyle';
+import { Container } from './MainPageStyle.styled';
 
 export class App extends Component {
   state = {
@@ -69,13 +71,14 @@ export class App extends Component {
     const filteredContacts = this.filterContacts();
 
     return (
-      <div>
+      <Container>
         <h1>Phonebook</h1>
         <PhoneForm onAdd={this.addPhone} />
         <h2>Contacts</h2>
         <Filter filter={filter} onSearchPhone={this.updateFilter} />
         <ContactList items={filteredContacts} onDelete={this.deletePhone} />
-      </div>
+        <GlobalStyle />
+      </Container>
     );
   }
 }

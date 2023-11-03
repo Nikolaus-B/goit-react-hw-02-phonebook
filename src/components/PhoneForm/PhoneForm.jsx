@@ -1,10 +1,11 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import {
   Field,
   Form,
   FormButton,
   FormContainer,
   FormGroup,
+  ErrorMessageStyled,
 } from './PhoneForm.styled';
 import * as Yup from 'yup';
 
@@ -37,13 +38,13 @@ export const PhoneForm = ({ onAdd }) => {
           <FormGroup>
             Name
             <Field name="name" placeholder="Jane" />
-            <ErrorMessage name="name" />
+            <ErrorMessageStyled name="name" />
           </FormGroup>
 
           <FormGroup>
             Phone
             <Field name="number" placeholder="+380..." />
-            <ErrorMessage name="number" />
+            <ErrorMessageStyled name="number" />
           </FormGroup>
 
           <FormButton type="submit">Add contact</FormButton>

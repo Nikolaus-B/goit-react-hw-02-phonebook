@@ -1,14 +1,16 @@
-import { Form as StyledForm, Field as FormField } from 'formik';
+import {
+  Form as StyledForm,
+  Field as FormFieldStyled,
+  ErrorMessage as FormikErrorMessage,
+} from 'formik';
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
-
   margin: 0 auto;
   padding: 10px 10px;
-
-  max-width: 300px;
+  width: 300px;
   border: 2px solid #3eb2fd;
   border-radius: 20px;
 `;
@@ -17,7 +19,6 @@ export const Form = styled(StyledForm)`
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   max-width: 400px;
 `;
 
@@ -27,9 +28,17 @@ export const FormGroup = styled.label`
   gap: 5px;
 `;
 
-export const Field = styled(FormField)`
+export const ErrorMessageStyled = styled(FormikErrorMessage)`
+  color: red;
+  font-size: 14px;
+`;
+
+export const Field = styled(FormFieldStyled)`
   padding: 4px;
+  width: 100%;
   max-width: 200px;
+  border: 2px solid #3eb2fd;
+  font-family: inherit;
 `;
 
 export const FormButton = styled.button`
@@ -61,7 +70,8 @@ export const FormButton = styled.button`
     touch-action: manipulation;
     vertical-align: top;
     white-space: nowrap;
-    max-width:150px
+    max-width:150px;
+    margin: 0 auto;
   }
 
   &:active,
