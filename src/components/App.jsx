@@ -5,7 +5,7 @@ import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import { GlobalStyle } from './GlobalStyle';
 import { Container } from './MainPageStyle.styled';
-import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export class App extends Component {
   state = {
@@ -44,10 +44,7 @@ export class App extends Component {
     const { contacts } = this.state;
 
     if (contacts.some(contact => contact.name === newItem.name)) {
-      Report.failure('', `${newItem.name} already in phonebook`, 'OK', {
-        width: '360px',
-        svgSize: '120px',
-      });
+      Notify.failure(`${newItem.name} already in phonebook`);
       return;
     }
 
@@ -60,17 +57,15 @@ export class App extends Component {
         contacts: [...prevState.contacts, item],
       };
     });
-
-    Report.success('Super', `${newItem.name} added to your contacts`, 'OK', {
-      width: '360px',
-      svgSize: '120px',
-    });
+    Notify.success(`${newItem.name} added to your contacts`);
   };
 
-  deletePhone = phoneId => {
+  deletePhone = user => {
+    Notify.info(`${user.name} removed from your phone book`);
+
     this.setState(prevState => {
       return {
-        contacts: prevState.contacts.filter(item => item.id !== phoneId),
+        contacts: prevState.contacts.filter(item => item.id !== user.id),
       };
     });
   };
