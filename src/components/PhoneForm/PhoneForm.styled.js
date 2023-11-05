@@ -28,7 +28,7 @@ export const FormGroup = styled.label`
   gap: 5px;
 `;
 
-export const ErrorMessageStyled = styled(FormikErrorMessage)`
+export const ErrorMessage = styled(FormikErrorMessage)`
   color: red;
   font-size: 14px;
 `;

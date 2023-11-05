@@ -5,7 +5,7 @@ import {
   FormButton,
   FormContainer,
   FormGroup,
-  ErrorMessageStyled,
+  ErrorMessage,
 } from './PhoneForm.styled';
 import * as Yup from 'yup';
 
@@ -38,13 +38,13 @@ export const PhoneForm = ({ onAdd }) => {
           <FormGroup>
             Name
             <Field name="name" placeholder="Jane" />
-            <ErrorMessageStyled name="name" />
+            <ErrorMessage component={'span'} name="name" />
           </FormGroup>
 
           <FormGroup>
             Phone
             <Field name="number" placeholder="+380..." />
-            <ErrorMessageStyled name="number" />
+            <ErrorMessage component={'span'} name="number" />
           </FormGroup>
 
           <FormButton type="submit">Add contact</FormButton>
